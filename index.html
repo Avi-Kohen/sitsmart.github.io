@@ -1,0 +1,150 @@
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">SitSmart</div>
+      <div class="tagline">מאמן יציבה לתלמיד + דשבורד למורה (Privacy‑First)</div>
+    </div>
+
+    <nav class="nav">
+      <button id="navStudent" class="navBtn" type="button">מצב תלמיד</button>
+      <button id="navTeacher" class="navBtn" type="button">מצב מורה</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- STUDENT VIEW -->
+    <section id="studentView" class="view">
+      <div class="grid2">
+        <div class="card">
+          <div class="cardHeader">
+            <div>
+              <div class="cardTitle">תצוגת מצלמה</div>
+              <div class="cardSub">הוידאו לא נשמר. הכל רץ מקומית בדפדפן.</div>
+            </div>
+            <div class="row">
+              <button id="webcamButton" class="primary" type="button">הפעל מצלמה</button>
+            </div>
+          </div>
+
+          <div class="videoWrap">
+            <video id="webcam" autoplay playsinline></video>
+            <canvas id="output_canvas" class="output_canvas"></canvas>
+
+            <div id="overlayMessage" class="overlayMessage hidden">
+              <div class="overlayTitle">יישור עדין ✨</div>
+              <div id="overlayText" class="overlayText">נסה לשבת זקוף רגע.</div>
+            </div>
+          </div>
+
+          <div class="smallNote" id="statusLine">טיפ: לחץ “הפעל מצלמה” ואז “כיול” ל‑10 שניות.</div>
+        </div>
+
+        <div class="card">
+          <div class="cardHeader">
+            <div>
+              <div class="cardTitle">ציון יציבה</div>
+              <div class="cardSub">הערכה מהירה לדמו (לא כלי רפואי)</div>
+            </div>
+            <div class="pill" id="studentIdPill">Student ID: —</div>
+          </div>
+
+          <div class="scoreRow">
+            <div>
+              <div id="scoreValue" class="scoreValue">—</div>
+              <div id="scoreZone" class="scoreZone">ממתין</div>
+            </div>
+
+            <div class="traffic">
+              <div id="lightGreen" class="light"></div>
+              <div id="lightYellow" class="light"></div>
+              <div id="lightRed" class="light"></div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="row gap">
+            <button id="calibrateBtn" class="secondary" type="button">כיול (10 שניות)</button>
+            <button id="resetBtn" class="ghost" type="button">איפוס כיול</button>
+          </div>
+
+          <div class="row gap" style="margin-top: 12px;">
+            <div class="kpi">
+              <div class="kpiLabel">נאג׳ים היום</div>
+              <div id="nudgeCount" class="kpiValue">0</div>
+            </div>
+            <div class="kpi">
+              <div class="kpiLabel">טיימר מתיחה</div>
+              <div id="stretchTimer" class="kpiValue">—</div>
+            </div>
+          </div>
+
+          <div class="smallNote">
+            מצב מורה עובד באותו מחשב ע״י פתיחת לשונית נוספת על “מצב מורה”.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEACHER VIEW -->
+    <section id="teacherView" class="view hidden">
+      <div class="grid3">
+        <div class="card">
+          <div class="cardTitle">ממוצע כיתה</div>
+          <div id="classAvg" class="bigNumber">—</div>
+          <div class="smallNote">ממוצע ציונים מהתלמידים המחוברים</div>
+        </div>
+        <div class="card">
+          <div class="cardTitle">תלמידים באדום</div>
+          <div id="classRed" class="bigNumber">—</div>
+          <div class="smallNote">דורשים מיקרו‑הפסקה / תזכורת</div>
+        </div>
+        <div class="card">
+          <div class="cardTitle">מחוברים כעת</div>
+          <div id="classConnected" class="bigNumber">—</div>
+          <div class="smallNote">נסגר אוטומטית אם אין נתונים 8 שניות</div>
+        </div>
+      </div>
+
+      <div class="grid2" style="margin-top: 16px;">
+        <div class="card">
+          <div class="cardHeader">
+            <div>
+              <div class="cardTitle">רשימת תלמידים (דמו)</div>
+              <div class="cardSub">מציג נתונים מצטברים בלבד — בלי וידאו</div>
+            </div>
+            <div class="row">
+              <button id="stretchBtn" class="primary" type="button">הפעל מתיחה 60 שניות</button>
+            </div>
+          </div>
+
+          <div class="table" id="studentTable">
+            <div class="tableRow tableHead">
+              <div>ID</div>
+              <div>ציון</div>
+              <div>מצב</div>
+              <div>לפני</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardTitle">הערות לשופטים (תכל׳ס)</div>
+          <ul class="bullets">
+            <li><b>Privacy‑First:</b> אין שמירת וידאו — רק ציונים.</li>
+            <li><b>Classroom Mode:</b> המורה רואה מצב כיתתי בזמן אמת.</li>
+            <li><b>Proof‑of‑Impact:</b> בהמשך — דו״ח שבועי (PDF) למדידה.</li>
+          </ul>
+          <div class="smallNote">טיפ: פתחו 2–3 לשוניות “מצב תלמיד” כדי לדמות כמה תלמידים.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>⚠️ דמו להאקתון: אלגוריתם בסיסי להמחשה בלבד.</span>
+  </footer>
+
+  <script type="module" src="./script.js"></script>
+</body>
